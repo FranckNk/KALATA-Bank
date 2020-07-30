@@ -5,6 +5,8 @@
 
 int main()
 {
+    char Ncin[11] = "";
+    Lire_Ntel(Ncin);
     printf("Hello world!\n");
     return 0;
 }
