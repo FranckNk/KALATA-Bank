@@ -1,0 +1,30 @@
+# depslib dependency file v1.0
+1596037850 source:c:\users\detergent madar\documents\code blocks\kalata bank\main.c
+	<stdio.h>
+	<stdlib.h>
+	"fonctions.h"
+	"erreurs.h"
+
+1596036607 c:\users\detergent madar\documents\code blocks\kalata bank\fonctions.h
+
+1596036441 c:\users\detergent madar\documents\code blocks\kalata bank\fonctions.c
+	<stdio.h>
+	<stdlib.h>
+
+1596036607 c:\users\detergent madar\documents\code blocks\kalata bank\erreurs.h
+
+1596036568 c:\users\detergent madar\documents\code blocks\kalata bank\erreurs.c
+	<stdio.h>
+	<string.h>
+	<stdlib.h>
+
+1596087492 source:c:\users\detergent madar\documents\code blocks\kalata bank\fonctions.c
+	<stdio.h>
+	<stdlib.h>
+	"erreurs.h"
+
+1596036568 source:c:\users\detergent madar\documents\code blocks\kalata bank\erreurs.c
+	<stdio.h>
+	<string.h>
+	<stdlib.h>
+
