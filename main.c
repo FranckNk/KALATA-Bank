@@ -7,6 +7,7 @@
 
 int main()
 {
+    system("color E0");
     Ajouter();
 
     printf("Hello world!\n");

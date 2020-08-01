@@ -50,6 +50,7 @@ void interface_1(char *choice)
 void interface_3()
 {
 	system("cls");
+	system("color A0")
 	printf("\t---------------------------------------------------------------------\t\n");
 	printf("\t\t\tVEUILLEZ AJOUTER DES CLIENTS ICI\t\t\t\n");
 	printf("\t---------------------------------------------------------------------\t\n\n");
@@ -58,6 +59,7 @@ void interface_3()
 void interface_4()
 {
 	system("cls");
+	system("color D0");
 	printf("\t---------------------------------------------------------------------\t\n");
 	printf("\t\t\tVEUILLEZ MODIFIER UN CLIENT ICI\t\t\t\n");
 	printf("\t---------------------------------------------------------------------\t\n\n");
