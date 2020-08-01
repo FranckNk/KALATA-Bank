@@ -28,3 +28,35 @@
 	<string.h>
 	<stdlib.h>
 
+1596122607 source:c:\users\madar\documents\code blocks\kalata bank\fonctions.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	"erreurs.h"
+
+1596120548 c:\users\madar\documents\code blocks\kalata bank\erreurs.h
+
+1596121336 source:c:\users\madar\documents\code blocks\kalata bank\erreurs.c
+	<stdio.h>
+	<string.h>
+	<stdlib.h>
+	<time.h>
+
+1596122552 source:c:\users\madar\documents\code blocks\kalata bank\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"fonctions.h"
+	"interface.h"
+	"erreurs.h"
+
+1596036608 c:\users\madar\documents\code blocks\kalata bank\fonctions.h
+
+1578326148 c:\users\madar\documents\code blocks\kalata bank\interface.h
+
+1596122926 source:c:\users\madar\documents\code blocks\kalata bank\interface.c
+	"erreurs.h"
+	<stdio.h>
+	<stdlib.h>
+	<wchar.h>
+

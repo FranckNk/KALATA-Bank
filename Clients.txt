@@ -1,0 +1,2 @@
+ 1000 |       DETERGENT |           MADAR |            ELEVE | 695334912 |  07/30/20
+ 1001 |         NKEUBOU |         FRANCKK |         ETUDIANT | 123456789 |  07/30/20

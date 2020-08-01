@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <time.h>
 
 // Déclaration des fonctions et leur fonctionnement.
 
@@ -103,9 +104,8 @@ void verification(const char *text,char *choice)
 
 void Lire_Profession(char *Profession)
 {
-    strcpy(Profession, "");
     char Table[] = {',','.','?','/',';',':',';','?','!','*','^','&','(',')','=','>','<'};
-    int i, signal, savoir = 1, test, esp = 0;
+    int i, signal, savoir = 0, test, esp = 0;
     espace space = False;
     int taille = sizeof(Table)/sizeof(char);
 
@@ -147,7 +147,7 @@ void Lire_Profession(char *Profession)
 
 		for(i = 0;i < strlen(Profession) - 1; i++)
 		{
-			if(isdigit(Profession[i]) || strlen(Profession) > 15 || esp > 1 || test != 0 || space == True || Profession[strlen(Profession) - 1] == ' ')
+			if(isdigit(Profession[i]) || strlen(Profession) > 21 || Profession[0] == ' ' || esp > 1 || test != 0 || space == True || Profession[strlen(Profession) - 1] == ' ')
 			{
 				signal = 1;
 				break;
@@ -160,4 +160,57 @@ void Lire_Profession(char *Profession)
 		if(Profession[i] >= 'a' && Profession[i] <= 'z')
 			Profession[i] = toupper(Profession[i]);
 }
+
+int lire_entier(int nb)
+{
+	char clean_buffer[50] = "";
+	int retourne,savoir = 1;
+	do
+	{
+		if(savoir == 1)
+			printf("\n>> ");
+		else
+			printf("\nIncorrect ! >> ");
+		retourne = scanf("%d",&nb);
+		gets(clean_buffer);
+		savoir++;
+	}while(strlen(clean_buffer) != 0 || retourne != 1 || nb < 10 || nb > 50);
+	return nb;
+}
+
+void Lire_Date(char *d)
+{
+    char test[9];
+    time_t temps = time(NULL);
+    strftime(test, sizeof(test), "%x", localtime(&temps));
+    strcpy(d, test);
+}
+//Cette fonction permet de compter le nombre de Clients qui se trouvent dans le fichier "Compte.txt"
+// Afin ce pouvoir attribuer le 'Id_Compte' de chaque compte et le 'Id_Client' de chaque client.
+int Nomber_account()
+{
+
+	FILE *Clients = NULL;
+	char text[200], cart;
+	int nb_ligne = 0;
+	Clients = fopen("Clients.txt","r");
+	if(Clients == NULL)
+	{
+		return -1;
+	}
+	cart = fgetc(Clients);
+	if(cart == EOF)
+	{
+		fclose(Clients);
+		return 0;
+	}
+	rewind(Clients);
+	while(fgets(text,199,Clients) != NULL)
+    {
+        nb_ligne++;
+    }
+    fclose(Clients);
+    return nb_ligne;
+}
+
 

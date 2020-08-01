@@ -1,12 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "fonctions.h"
+#include "interface.h"
 #include "erreurs.h"
 
 int main()
 {
-    char Ncin[11] = "";
-    Lire_Ntel(Ncin);
+    Ajouter();
+
     printf("Hello world!\n");
     return 0;
 }
