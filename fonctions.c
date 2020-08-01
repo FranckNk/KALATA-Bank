@@ -48,7 +48,7 @@ void Ajouter()
 		Lire_Profession(MonClient.Profession);
 		Lire_Ntel(MonClient.Ntel);
 		Lire_Date(MonClient.Date);
-		fprintf(Clients,"%5s | %14s | %14s | %15s | %9s | %8s\n",MonClient.Id_client,MonClient.Nom,MonClient.Prenom,MonClient.Profession, MonClient.Ntel, MonClient.Date);
+		fprintf(Clients,"%s|%s|%s|%s|%s|%s\n",MonClient.Id_client,MonClient.Nom,MonClient.Prenom,MonClient.Profession, MonClient.Ntel, MonClient.Date);
 		wprintf(L"\n\nAjout r%1cussi !!!\n",130 );
 		printf("\nEntrez 0 pour quitter ou tout autre pour continuer : ");
 		scanf("%c",&option);
