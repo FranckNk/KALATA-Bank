@@ -39,7 +39,9 @@ void interface_1(char *choice)
 	system("color 37");
 	interface_0();
 	printf("\t---------------------------------------------------------------------\t\n");
+	printf("\t*********************************************************************\t\n");
 	printf("\t\t\tKALATA BANK\t\t\t\n");
+	printf("\t*********************************************************************\t\n");
 	printf("\t---------------------------------------------------------------------\t\n\n");
 	printf("Que voulez-vous faire ?\n\n");
 	wprintf(L"1. G%1crer les clients\t2. G%1crer les comptes\t3. G%1crer les op%1crations \t4. Quitter\n\n",130, 130, 130, 130);
@@ -94,6 +96,7 @@ void interface_7()
 void interface_8()
 {
 	system("cls");
+	system("color f9");
 	printf("\t---------------------------------------------------------------------\t\n");
 	printf("\t\t\tEFFECTUER LA RECHERCHE ICI\t\t\t\n");
 	printf("\t---------------------------------------------------------------------\t\n\n");

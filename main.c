@@ -8,7 +8,7 @@
 int main()
 {
     system("color E0");
-    Supprimer();
+    Recherche();
 
     printf("Hello world!\n");
     return 0;

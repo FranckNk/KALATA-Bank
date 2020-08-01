@@ -8,6 +8,7 @@ void Lire_Date(char *d);
 int lire_entier(int nb);
 void Lire_Profession(char *Profession);
 void verification(const char *text,char *choice);
+void Lire_Id(char *Id);
 
 
 #endif // ERREURS_H_INCLUDED
