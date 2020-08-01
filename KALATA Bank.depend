@@ -60,3 +60,35 @@
 	<stdlib.h>
 	<wchar.h>
 
+1596276494 source:c:\users\madar\documents\github\kalata-bank\erreurs.c
+	<stdio.h>
+	<string.h>
+	<stdlib.h>
+	<time.h>
+
+1596278029 source:c:\users\madar\documents\github\kalata-bank\fonctions.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	"erreurs.h"
+
+1596253269 c:\users\madar\documents\github\kalata-bank\erreurs.h
+
+1596277801 source:c:\users\madar\documents\github\kalata-bank\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"fonctions.h"
+	"interface.h"
+	"erreurs.h"
+
+1596253269 c:\users\madar\documents\github\kalata-bank\fonctions.h
+
+1596253269 c:\users\madar\documents\github\kalata-bank\interface.h
+
+1596275150 source:c:\users\madar\documents\github\kalata-bank\interface.c
+	"erreurs.h"
+	<stdio.h>
+	<stdlib.h>
+	<wchar.h>
+

@@ -11,6 +11,25 @@ enum Espace
 	True, False
 };
 
+void Lire_Id(char *Id)
+{
+	char clean_buffer[50] = "";
+	int Id_Client;
+	int retourne,savoir = 1;
+	do
+	{
+		if(savoir == 1)
+			printf("\nEntrez l'Id du client : ");
+		else
+			printf("\nL'Id_Client est incorrect ! Reessayez : ");
+		retourne = scanf("%d",&Id_Client);
+		gets(clean_buffer);
+		savoir++;
+	}while(strlen(clean_buffer) != 0 || retourne != 1 || Id_Client < 1000 || Id_Client > 9999);
+	itoa(Id_Client, Id, 10);
+
+}
+
 void Lire_Ntel(char *Ntel)
 {
 	strcpy(Ntel,"");
@@ -116,9 +135,9 @@ void Lire_Profession(char *Profession)
 		esp = 0;
 		space = False;
         if(savoir == 0)
-            printf("Votre profession : ");
+            printf("\nVotre profession : ");
         else
-            printf("Profession invalide : Re-entrez : ");
+            printf("\nProfession invalide : Re-entrez : ");
         gets(Profession);
 
 		for (i = 0; i < strlen(Profession); i++)
