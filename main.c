@@ -8,7 +8,7 @@
 int main()
 {
     system("color E0");
-    Recherche();
+    Affiche_Clients();
 
     printf("Hello world!\n");
     return 0;

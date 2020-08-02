@@ -40,7 +40,7 @@ void interface_1(char *choice)
 	interface_0();
 	printf("\t---------------------------------------------------------------------\t\n");
 	printf("\t*********************************************************************\t\n");
-	printf("\t\t\tKALATA BANK\t\t\t\n");
+	printf("\t\t\t    KALATA BANK\t\t\t\n");
 	printf("\t*********************************************************************\t\n");
 	printf("\t---------------------------------------------------------------------\t\n\n");
 	printf("Que voulez-vous faire ?\n\n");
@@ -54,7 +54,7 @@ void interface_3()
 	system("cls");
 	system("color A0");
 	printf("\t---------------------------------------------------------------------\t\n");
-	printf("\t\t\tVEUILLEZ AJOUTER DES CLIENTS ICI\t\t\t\n");
+	printf("\t\t\t     VEUILLEZ AJOUTER DES CLIENTS ICI\t\t\t\n");
 	printf("\t---------------------------------------------------------------------\t\n\n");
 
 }
@@ -63,7 +63,7 @@ void interface_4()
 	system("cls");
 	system("color D0");
 	printf("\t---------------------------------------------------------------------\t\n");
-	printf("\t\t\tVEUILLEZ MODIFIER UN CLIENT ICI\t\t\t\n");
+	printf("\t\t\t        VEUILLEZ MODIFIER UN CLIENT ICI\t\t\t\n");
 	printf("\t---------------------------------------------------------------------\t\n\n");
 }
 void interface_5()
@@ -71,14 +71,14 @@ void interface_5()
 	system("cls");
 	system("color BD");
 	printf("\t---------------------------------------------------------------------\t\n");
-	printf("\t\t\tVEUILLEZ SUPPRIMER UN CLIENT ICI\t\t\t\n");
+	printf("\t\t\t        VEUILLEZ SUPPRIMER UN CLIENT ICI\t\t\t\n");
 	printf("\t---------------------------------------------------------------------\t\n\n");
 }
 void interface_6(char *choice)
 {
 	system("cls");
 	printf("\t---------------------------------------------------------------------\t\n");
-	printf("\t\t\tVEUILLEZ GERER VOS CLIENTS\t\t\t\n");
+	printf("\t\t\t     VEUILLEZ GERER VOS CLIENTS\t\t\t\n");
 	printf("\t---------------------------------------------------------------------\t\n\n");
 	printf("Que voulez-vous faire ?\n\n");
 	wprintf(L"1. Liste d'admis\n2. Liste d'attente\n3. Rechercher \n4. Statistiques \n5. Affiche m%1crite\n6. Supprimer %1cg%1cs\n7. Sortir\n\n",130, 131, 130);
@@ -88,8 +88,9 @@ void interface_6(char *choice)
 void interface_7()
 {
 	system("cls");
+	system("color 1f");
 	printf("\t---------------------------------------------------------------------\t\n");
-	printf("\t\t\tLISTE DES CLIENTS\t\t\t\n");
+	printf("\t\t\t     LISTE DES CLIENTS\t\t\t\n");
 	printf("\t---------------------------------------------------------------------\t\n\n");
 }
 
@@ -98,6 +99,6 @@ void interface_8()
 	system("cls");
 	system("color f9");
 	printf("\t---------------------------------------------------------------------\t\n");
-	printf("\t\t\tEFFECTUER LA RECHERCHE ICI\t\t\t\n");
+	printf("\t\t\t     EFFECTUER LA RECHERCHE ICI\t\t\t\n");
 	printf("\t---------------------------------------------------------------------\t\n\n");
 }

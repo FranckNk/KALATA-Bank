@@ -27,6 +27,7 @@ typedef struct Compte
 
 void Display_Client(Client UnClient);
 Client Generer_client(char *chaine);
+void Refresh_ID();
 
 void Ajouter()
 {
@@ -79,6 +80,7 @@ void Supprimer()
 	FILE *Clients_tmp = NULL;
 	FILE *Clients = NULL;
 	Clients = fopen("Clients.txt", "r");
+    Clients_tmp = fopen("Clients_tmp.txt", "w");
 
 	cart = fgetc(Clients);
 	rewind(Clients);
@@ -88,8 +90,18 @@ void Supprimer()
 	}
 	else
 	{
+	    printf("Comment voulez-vous supprimer ?\n1. UN PAR UN.\t2. TOUT.\n\n>> ");
+	    verification("12", &cart);
+	    if(cart == '2')
+        {
+            fclose(Clients_tmp);
+            fclose(Clients);
+            remove("Clients.txt");
+            rename("Clients_tmp.txt", "Clients.txt");
+            wprintf(L"Suppr%1cssion r%1cussie...", 130, 130);
+            return;
+        }
 		Lire_Id(MonClient.Id_client);
-		Clients_tmp = fopen("Clients_tmp.txt", "w");
 		while(fgets(text,199,Clients) != NULL)
 		{
 			strcpy(text_1,text);
@@ -125,6 +137,7 @@ void Supprimer()
 	fclose(Clients);
 	remove("Clients.txt");
 	rename("Clients_tmp.txt", "Clients.txt");
+	Refresh_ID();
 	system("pause");
 }
 
@@ -142,7 +155,6 @@ void Recherche()
 	if (cart == EOF)
 	{
 		printf("\nFichier vide :(.");
-		rewind(Clients);
 	}
 	else
 	{
@@ -174,7 +186,6 @@ void Recherche()
 		}
 		if(signe == 0)
 			printf("\nClient inexistant :(.\n\n");
-		fclose(Clients_tmp);
 	}
 	fclose(Clients);
 	system("pause");
@@ -209,30 +220,49 @@ Client Generer_client(char* chaine)
 void Refresh_ID()
 {
 	char text[200] = "", cart;
-	int Nb_clients = Nomber_account();
-	FILE *Clients = NULL;
+	int nb = 0;
+	FILE *Clients = NULL, *Clients_tmp;
 	Client N;
 	Clients = fopen("Clients.txt", "r");
 	cart = fgetc(Clients);
 	rewind(Clients);
 	if (cart == EOF)
-	{
-	    return;
-	}
+        return;
 	else
     {
 		Clients_tmp = fopen("Clients_tmp.txt", "w");
         while(fgets(text,199,Clients) != NULL)
         {
             N = Generer_client(text);
-            itoa((1000 + nb_clients), N.Id_client, 10);
-
-            fclose(Clients_tmp);
-            fclose(Clients);
+            itoa((1000 + nb), N.Id_client, 10);
+            fprintf(Clients_tmp,"%s|%s|%s|%s|%s|%s\n",N.Id_client,N.Nom,N.Prenom,N.Profession, N.Ntel, N.Date);
+            nb++;
         }
     }
+    fclose(Clients_tmp);
+    fclose(Clients);
 	remove("Clients.txt");
 	rename("Clients_tmp.txt", "Clients.txt");
-
 }
 
+void Affiche_Clients()
+{
+    interface_7();
+    FILE *Clients = fopen("Clients.txt", "r");
+    char text[200] = "", cart;
+    if(Clients == NULL)
+    {
+        printf("Impossible d'ouvrir le fichier... :(");
+        return;
+    }
+    cart = fgetc(Clients);
+    if(cart == EOF)
+        printf("Fichier vide !");
+    rewind(Clients);
+    while(fgets(text, 200, Clients) != NULL)
+    {
+        MonClient = Generer_client(text);
+        Display_Client(MonClient);
+    }
+    fclose(Clients);
+}

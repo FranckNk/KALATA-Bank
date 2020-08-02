@@ -66,7 +66,7 @@
 	<stdlib.h>
 	<time.h>
 
-1596299156 source:c:\users\madar\documents\github\kalata-bank\fonctions.c
+1596389506 source:c:\users\madar\documents\github\kalata-bank\fonctions.c
 	<stdio.h>
 	<stdlib.h>
 	<time.h>
@@ -76,7 +76,7 @@
 
 1596296771 c:\users\madar\documents\github\kalata-bank\erreurs.h
 
-1596293489 source:c:\users\madar\documents\github\kalata-bank\main.c
+1596389279 source:c:\users\madar\documents\github\kalata-bank\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -84,11 +84,11 @@
 	"interface.h"
 	"erreurs.h"
 
-1596296936 c:\users\madar\documents\github\kalata-bank\fonctions.h
+1596388033 c:\users\madar\documents\github\kalata-bank\fonctions.h
 
 1596253269 c:\users\madar\documents\github\kalata-bank\interface.h
 
-1596296444 source:c:\users\madar\documents\github\kalata-bank\interface.c
+1596389281 source:c:\users\madar\documents\github\kalata-bank\interface.c
 	"erreurs.h"
 	<stdio.h>
 	<stdlib.h>
