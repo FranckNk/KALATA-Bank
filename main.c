@@ -8,7 +8,8 @@
 int main()
 {
     system("color E0");
-    Affiche_Clients();
+    char c;
+    printf("L'adresse est : %p\n", &c);
 
     printf("Hello world!\n");
     return 0;

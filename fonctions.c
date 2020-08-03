@@ -99,6 +99,7 @@ void Supprimer()
             remove("Clients.txt");
             rename("Clients_tmp.txt", "Clients.txt");
             wprintf(L"Suppr%1cssion r%1cussie...", 130, 130);
+            system("pause");
             return;
         }
 		Lire_Id(MonClient.Id_client);
@@ -266,3 +267,64 @@ void Affiche_Clients()
     }
     fclose(Clients);
 }
+
+void Modifier()
+{
+    interface_4();
+    char text[200] = "", cart, Id_tmp[5] = "";
+    int trouve = 0;
+    Client N;
+    FILE *Clients = fopen("Clients.txt", "r");
+
+    cart = fgetc(Clients);
+    if(cart == EOF)
+    {
+        printf("\nFichier vide...\n");
+        fclose(Clients);
+        system("pause");
+        return;
+    }
+    FILE *Clients_tmp = fopen("Clients_tmp.txt", "w");
+    rewind(Clients);
+    Lire_Id(Id_tmp);
+
+    while(fgets(text, 199, Clients) != NULL)
+    {
+        N = Generer_client(text);
+        if(strcmp(Id_tmp, N.Id_client) == 0)
+        {
+            printf("\nVoulez vous modifier le nom ?\n1. OUI\t2. NON\n\n>> ");
+            verification("12", &cart);
+            if(cart == '1')
+                Lire_Nom_ou_Prenom(N.Nom, 'n');
+            wprintf(L"\nVoulez vous modifier le pr%1cnom ?\n1. OUI\t2. NON\n\n>> ", 130);
+            verification("12", &cart);
+            if(cart == '1')
+                Lire_Nom_ou_Prenom(N.Prenom, 'P');
+            wprintf(L"\nVoulez vous modifier la profession ?\n1. OUI\t2. NON\n\n>> ", 130);
+            verification("12", &cart);
+            if(cart == '1')
+                Lire_Profession(N.Profession);
+            wprintf(L"\nVoulez vous modifier le num%1cro de t%1cl%1cphone ?\n1. OUI\t2. NON\n\n>> ", 130, 130, 130);
+            verification("12", &cart);
+            if(cart == '1')
+                Lire_Ntel(N.Ntel );
+            fprintf(Clients_tmp,"%s|%s|%s|%s|%s|%s\n",N.Id_client,N.Nom,N.Prenom,N.Profession, N.Ntel, N.Date);
+            trouve++;
+        }
+        else
+            fputs(text, Clients_tmp);
+    }
+    if(trouve == 0)
+        printf("\nClient absent...\n\n");
+    else
+        wprintf(L"\n\Modification r%1cussie !!!\n\n",130);
+
+    fclose(Clients_tmp);
+    fclose(Clients);
+	remove("Clients.txt");
+	rename("Clients_tmp.txt", "Clients.txt");
+    system("pause");
+}
+
+
