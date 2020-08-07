@@ -2,6 +2,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <time.h>
+#include <ctype.h>
 
 // Déclaration des fonctions et leur fonctionnement.
 
@@ -11,23 +12,134 @@ enum Espace
 	True, False
 };
 
+int search_ID(char *ID)
+{
+    FILE *Clients = fopen("Clients.txt", "r");
+    char text[200] = "";
+    if(Clients == NULL)
+    {
+        printf("Impossible d'ouvrir le fichier pour la recherche de l'ID :( !");
+        return 0;
+    }
+    while(fgets(text, 199, Clients) != NULL)
+    {
+        if(strstr(text, ID) == 0)
+        {
+            fclose(Clients);
+            return 1;
+        }
+    }
+    fclose(Clients);
+    return 0;
+
+}
+void Generer_ID(char *ID)
+{
+    char chaine[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+    srand(time(NULL));
+    for(int i = 0; i < 5; i++)
+        ID[i] = chaine[rand() % 32];
+}
+void Compte_ID(char *ID)
+{
+    char chaine[] = "ABCD1234567890";
+    srand(time(NULL));
+    for(int i = 0; i < 5; i++)
+        ID[i] = chaine[rand() % 14];
+}
+
+float Pull_Bank()
+{
+    FILE *Banque = fopen("Banque.txt", "r");
+    float solde;
+    fscanf(Banque,"%f", &solde);
+    fclose(Banque);
+    return solde;
+}
+
+void Push_Bank(float solde)
+{
+    FILE *Banque = fopen("Banque.txt", "w");
+    fprintf(Banque, "%.0f", solde);
+    fclose(Banque);
+}
+
+void Creer_Solde(float *solde)
+{
+    int savoir = 0, retourner;
+    printf("FAITES VOTRE PREMIER VIREMENT !\n");
+    do
+    {
+        if(savoir == 0)
+            printf(">> ");
+        else
+            printf("Montant invalide ! >> ");
+        retourner = scanf("%f", solde);
+    }while(*solde <= 25000 || *solde > 250000 || retourner != 1);
+}
+
+void Lire_Compte_ID(char *Id)
+{
+    char Table[] = "ABCD1234567890";
+	char clean_buffer[50] = "";
+	int retourne, i, test, savoir = 1;
+	do
+	{
+		test = 0;
+		if(savoir == 1)
+			printf("\nEntrez l'Id du compte : ");
+		else
+			printf("\nId_Compte incorrect ! Reessayez : ");
+		retourne = scanf("%s",Id);
+		gets(clean_buffer);
+		for(int i = 0;i < strlen(Id);i++)
+            if(Id[i] >= 'a' && Id[i] <= 'z')
+                Id[i] = toupper(Id[i]);
+		for (i = 0; i < strlen(Id); i++)
+		{
+			for (int j = 0; j < strlen(Table); j++)
+			{
+				if(Id[i] == Table[j])
+				{
+					test ++;
+					break;
+				}
+			}
+		}
+		savoir++;
+	}while(strlen(clean_buffer) != 0 || retourne != 1 || strlen(Id) != 5 || test != 5);
+}
 void Lire_Id(char *Id)
 {
 	char clean_buffer[50] = "";
-	int Id_Client;
-	int retourne,savoir = 1;
+ 	char Table[] = {',','.','?','/',';',':',';','?','!','*','^','&','(',')','=','>','<'};
+	int retourne, i, test, savoir = 1;
 	do
 	{
+		test = 0;
 		if(savoir == 1)
 			printf("\nEntrez l'Id du client : ");
 		else
 			printf("\nL'Id_Client est incorrect ! Reessayez : ");
-		retourne = scanf("%d",&Id_Client);
+		retourne = scanf("%s",Id);
 		gets(clean_buffer);
+		for (i = 0; i < strlen(Id); i++)
+		{
+			for (int j = 0; j < strlen(Table); j++)
+			{
+				if(Id[i] == Table[j])
+				{
+					test = 1;
+					break;
+				}
+			}
+		}
 		savoir++;
-	}while(strlen(clean_buffer) != 0 || retourne != 1 || Id_Client < 1000 || Id_Client > 9999);
-	itoa(Id_Client, Id, 10);
+	}while(strlen(clean_buffer) != 0 || retourne != 1 || strlen(Id) != 5 || test == 1);
 
+	for(int i = 0;i < strlen(Id);i++)
+		if(Id[i] >= 'a' && Id[i] <= 'z')
+			Id[i] = toupper(Id[i]);
 }
 
 void Lire_Ntel(char *Ntel)
@@ -83,7 +195,7 @@ void Lire_Nom_ou_Prenom(char *NOMouPRENOM,char SAVOIR_si_NouP)
 			}
 		}
 
-		for(i = 0;i < strlen(NOMouPRENOM) - 1; i++)
+		for(i = 0;i < strlen(NOMouPRENOM); i++)
 		{
 			if(isdigit(NOMouPRENOM[i]) || NOMouPRENOM[i] == ' ' || test != 0)
 			{

@@ -9,6 +9,12 @@ int lire_entier(int nb);
 void Lire_Profession(char *Profession);
 void verification(const char *text,char *choice);
 void Lire_Id(char *Id);
+void Generer_ID(char *ID);
+int search_ID(char *ID);
+void Compte_ID(char *ID);
+void Creer_Solde(float *solde);
+float Pull_Bank();
+void Push_Bank(float solde);
 
 
 #endif // ERREURS_H_INCLUDED

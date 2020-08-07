@@ -1,13 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <ctype.h>
 #include <string.h>
 #include "erreurs.h"
 #include "interface.h"
 
 typedef struct Client
 {
-    char Id_client[5];
+    char Id_client[6];
     char Nom[15];
     char Prenom[15];
     char Profession[16];
@@ -19,49 +20,56 @@ Client MonClient;
 
 typedef struct Compte
 {
-    char Id_Compte[5];
-    char Id_Client[5];
+    char Id_Compte[6];
+    char Id_Client[6];
     float Solde;
-    char Derniere_Op[10];
+    char Derniere_Op[9];
 }Compte;
+
+Compte MonCompte;
 
 void Display_Client(Client UnClient);
 Client Generer_client(char *chaine);
-void Refresh_ID();
 
 void Ajouter()
 {
-	int nb_clients = Nomber_account();
-	FILE *Clients = NULL;
+	FILE *Clients = NULL, *Comptes = NULL;
 	char option,clean_buffer[50] = "";
 	int i = 1;
+	float Solde_Banque;
 	system("cls");
+    interface_3();
 	Clients = fopen("Clients.txt","a");
+	Comptes = fopen("Comptes.txt", "a");
 	if(Clients == NULL)
 	{
 		printf("Impossible d'ouvrir le fichier :(\n");
 		return;
 	}
-	if(nb_clients == -1)
-        nb_clients = 0;
+
 	do
 	{
-		interface_3();
+		wprintf(L"La cr%1cation d'un client conduit %1c la cr%1cation de son compte.\n",130, 133, 130);
 		printf("CLIENT N - %d A AJOUTER :\n",i);
-		itoa((1000 + nb_clients), MonClient.Id_client, 10);
+		Generer_ID(MonClient.Id_client);
 		Lire_Nom_ou_Prenom(MonClient.Nom,'n');
 		Lire_Nom_ou_Prenom(MonClient.Prenom,'p');
 		Lire_Profession(MonClient.Profession);
 		Lire_Ntel(MonClient.Ntel);
 		Lire_Date(MonClient.Date);
+		Creer_Solde(&MonCompte.Solde);
 		fprintf(Clients,"%s|%s|%s|%s|%s|%s\n",MonClient.Id_client,MonClient.Nom,MonClient.Prenom,MonClient.Profession, MonClient.Ntel, MonClient.Date);
+		Compte_ID(MonCompte.Id_Compte);
+		strcpy(MonCompte.Id_Client, MonClient.Id_client);
+		strcpy(MonCompte.Derniere_Op, "VIREMENT");
+        Solde_Banque = Pull_Bank();
+        Push_Bank(Solde_Banque + MonCompte.Solde);
+        fprintf(Comptes,"%s|%s|%.0f|%s\n", MonCompte.Id_Compte, MonCompte.Id_Client, MonCompte.Solde, MonCompte.Derniere_Op);
 		wprintf(L"\n\nAjout r%1cussi !!!\n",130 );
 		printf("\nEntrez 0 pour quitter ou tout autre pour continuer : ");
 		scanf("%c",&option);
-
 		gets(clean_buffer);
 		system("cls");
-		nb_clients++;
 		i++;
 	}while(option != '0');
 	system("cls");
@@ -90,7 +98,7 @@ void Supprimer()
 	}
 	else
 	{
-	    printf("Comment voulez-vous supprimer ?\n1. UN PAR UN.\t2. TOUT.\n\n>> ");
+	    printf("Comment voulez-vous supprimer ?\n1. UN SEUL.\t2. TOUT.\n\n>> ");
 	    verification("12", &cart);
 	    if(cart == '2')
         {
@@ -138,7 +146,6 @@ void Supprimer()
 	fclose(Clients);
 	remove("Clients.txt");
 	rename("Clients_tmp.txt", "Clients.txt");
-	Refresh_ID();
 	system("pause");
 }
 
@@ -167,7 +174,10 @@ void Recherche()
         if(c == '2')
             Lire_Nom_ou_Prenom(nom, 'n');
         if(c == '3')
+        {
+            fclose(Clients);
             return;
+        }
 
 		while(fgets(text,199,Clients) != NULL)
 		{
@@ -185,6 +195,7 @@ void Recherche()
                     signe++;
                 }
 		}
+
 		if(signe == 0)
 			printf("\nClient inexistant :(.\n\n");
 	}
@@ -218,34 +229,6 @@ Client Generer_client(char* chaine)
     return Result;
 }
 
-void Refresh_ID()
-{
-	char text[200] = "", cart;
-	int nb = 0;
-	FILE *Clients = NULL, *Clients_tmp;
-	Client N;
-	Clients = fopen("Clients.txt", "r");
-	cart = fgetc(Clients);
-	rewind(Clients);
-	if (cart == EOF)
-        return;
-	else
-    {
-		Clients_tmp = fopen("Clients_tmp.txt", "w");
-        while(fgets(text,199,Clients) != NULL)
-        {
-            N = Generer_client(text);
-            itoa((1000 + nb), N.Id_client, 10);
-            fprintf(Clients_tmp,"%s|%s|%s|%s|%s|%s\n",N.Id_client,N.Nom,N.Prenom,N.Profession, N.Ntel, N.Date);
-            nb++;
-        }
-    }
-    fclose(Clients_tmp);
-    fclose(Clients);
-	remove("Clients.txt");
-	rename("Clients_tmp.txt", "Clients.txt");
-}
-
 void Affiche_Clients()
 {
     interface_7();
@@ -271,7 +254,7 @@ void Affiche_Clients()
 void Modifier()
 {
     interface_4();
-    char text[200] = "", cart, Id_tmp[5] = "";
+    char text[200] = "", cart, Id_tmp[6] = "";
     int trouve = 0;
     Client N;
     FILE *Clients = fopen("Clients.txt", "r");
@@ -318,7 +301,7 @@ void Modifier()
     if(trouve == 0)
         printf("\nClient absent...\n\n");
     else
-        wprintf(L"\n\Modification r%1cussie !!!\n\n",130);
+        wprintf(L"\nModification r%1cussie !!!\n\n",130);
 
     fclose(Clients_tmp);
     fclose(Clients);

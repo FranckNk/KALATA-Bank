@@ -7,10 +7,9 @@
 
 int main()
 {
-    system("color E0");
-    char c;
-    printf("L'adresse est : %p\n", &c);
+    float nombre;
+    Ajouter();
 
-    printf("Hello world!\n");
+    printf("\nHello world!\n");
     return 0;
 }
