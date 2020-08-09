@@ -5,7 +5,7 @@
 
 void interface_0();
 void interface_1(char *choice);
-void interface_2(char *choice,int exlcu_option);
+void interface_2(char *choice);
 void interface_3();
 void interface_4();
 void interface_5();

@@ -22,17 +22,15 @@ int search_ID(char *ID)
         return 0;
     }
     while(fgets(text, 199, Clients) != NULL)
-    {
-        if(strstr(text, ID) == 0)
+        if(strstr(text, ID) != 0)
         {
             fclose(Clients);
             return 1;
         }
-    }
     fclose(Clients);
     return 0;
-
 }
+
 void Generer_ID(char *ID)
 {
     char chaine[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
@@ -67,15 +65,42 @@ void Push_Bank(float solde)
 void Creer_Solde(float *solde)
 {
     int savoir = 0, retourner;
-    printf("FAITES VOTRE PREMIER VIREMENT !\n");
+    printf("\nFAITES VOTRE PREMIER VIREMENT !\n\n");
     do
     {
         if(savoir == 0)
             printf(">> ");
         else
-            printf("Montant invalide ! >> ");
+            printf("\nMontant invalide ! >> ");
         retourner = scanf("%f", solde);
-    }while(*solde <= 25000 || *solde > 250000 || retourner != 1);
+        savoir++;
+    }while(*solde <= 25000 || *solde > 1000000 || retourner != 1);
+}
+void Generer_Solde(float *solde, char Savoir_R_ou_V)
+{
+    int savoir = 0, retourner;
+    if(Savoir_R_ou_V == 'r')
+    do
+    {
+        printf("\nFAITES VOTRE RETRAIT !\n\n");
+        if(savoir == 0)
+            printf(">> ");
+        else
+            printf("\nMontant invalide ! >> ");
+        retourner = scanf("%f", solde);
+        savoir++;
+    }while(*solde < 10000 || *solde > 250000 || retourner != 1);
+    if(Savoir_R_ou_V == 'v')
+        do
+        {
+            printf("\nFAITES VOTRE VIREMENT !\n\n");
+            if(savoir == 0)
+                printf(">> ");
+            else
+                printf("\nMontant invalide ! >> ");
+            retourner = scanf("%f", solde);
+            savoir++;
+        }while(*solde < 10000 || retourner != 1);
 }
 
 void Lire_Compte_ID(char *Id)
@@ -98,17 +123,16 @@ void Lire_Compte_ID(char *Id)
 		for (i = 0; i < strlen(Id); i++)
 		{
 			for (int j = 0; j < strlen(Table); j++)
-			{
 				if(Id[i] == Table[j])
 				{
 					test ++;
 					break;
 				}
-			}
 		}
 		savoir++;
 	}while(strlen(clean_buffer) != 0 || retourne != 1 || strlen(Id) != 5 || test != 5);
 }
+
 void Lire_Id(char *Id)
 {
 	char clean_buffer[50] = "";
@@ -124,16 +148,12 @@ void Lire_Id(char *Id)
 		retourne = scanf("%s",Id);
 		gets(clean_buffer);
 		for (i = 0; i < strlen(Id); i++)
-		{
 			for (int j = 0; j < strlen(Table); j++)
-			{
 				if(Id[i] == Table[j])
 				{
 					test = 1;
 					break;
 				}
-			}
-		}
 		savoir++;
 	}while(strlen(clean_buffer) != 0 || retourne != 1 || strlen(Id) != 5 || test == 1);
 
@@ -176,33 +196,26 @@ void Lire_Nom_ou_Prenom(char *NOMouPRENOM,char SAVOIR_si_NouP)
 		signal = 0;
 		test = 0;
 		if(savoir == 1 && SAVOIR_si_NouP == 'n')
-			printf("\nEntrez le nom du client : ");
+			printf("\nNOM DU CLIENT : ");
 		else if(savoir == 1 && SAVOIR_si_NouP == 'p')
-			printf("\nEntrez le prenom du client : ");
+			printf("\nPRENOM DU CLIENT : ");
 		else
 			printf("\nIncorrect(s) ! Reessayez : ");
 		gets(NOMouPRENOM);
 
 		for (i = 0; i < strlen(NOMouPRENOM); i++)
-		{
 			for (int j = 0; j < taille; j++)
-			{
 				if(NOMouPRENOM[i] == Table[j])
 				{
 					test += 1;
 					break;
 				}
-			}
-		}
-
 		for(i = 0;i < strlen(NOMouPRENOM); i++)
-		{
 			if(isdigit(NOMouPRENOM[i]) || NOMouPRENOM[i] == ' ' || test != 0)
 			{
 				signal = 1;
 				break;
 			}
-		}
 		savoir++;
 	}while(signal == 1);
 
@@ -220,9 +233,11 @@ void verification(const char *text,char *choice)
 	{
 		signal = 0;
 		if(savoir != 1)
-			printf("Choix inexistant ! Re-entrez : ");
+			printf("\nChoix inexistant ! Re-entrez : ");
 		scanf("%c",choice);
-		gets(clean_buffer);
+        gets(clean_buffer);
+        if(*choice >= 'a' && *choice <= 'z')
+                *choice = toupper(*choice);
 		for(i = 0;i < strlen(text);i++)
 			if(text[i] == *choice)
 			{
@@ -255,35 +270,25 @@ void Lire_Profession(char *Profession)
 		for (i = 0; i < strlen(Profession); i++)
 		{
 			for (int j = 0; j < taille; j++)
-			{
 				if(Profession[i] == Table[j])
 				{
 					test += 1;
 					break;
 				}
-			}
 			if (Profession[i] == ' ' && space == False)
-			{
 				space = True;
-			}
 			else if (Profession[i] == ' ' && space == True)
-			{
 				esp += 1;
-			}
 			else if (Profession[i] != ' ')
-			{
 				space = False;
-			}
 		}
 
 		for(i = 0;i < strlen(Profession) - 1; i++)
-		{
 			if(isdigit(Profession[i]) || strlen(Profession) > 21 || Profession[0] == ' ' || esp > 1 || test != 0 || space == True || Profession[strlen(Profession) - 1] == ' ')
 			{
 				signal = 1;
 				break;
 			}
-		}
         savoir++;
     }while(signal == 1 );
 
@@ -316,31 +321,5 @@ void Lire_Date(char *d)
     strftime(test, sizeof(test), "%x", localtime(&temps));
     strcpy(d, test);
 }
-//Cette fonction permet de compter le nombre de Clients qui se trouvent dans le fichier "Compte.txt"
-// Afin ce pouvoir attribuer le 'Id_Compte' de chaque compte et le 'Id_Client' de chaque client.
-int Nomber_account()
-{
 
-	FILE *Clients = NULL;
-	char text[200], cart;
-	int nb_ligne = 0;
-	Clients = fopen("Clients.txt","r");
-	if(Clients == NULL)
-	{
-		return -1;
-	}
-	cart = fgetc(Clients);
-	if(cart == EOF)
-	{
-		fclose(Clients);
-		return 0;
-	}
-	rewind(Clients);
-	while(fgets(text,199,Clients) != NULL)
-    {
-        nb_ligne++;
-    }
-    fclose(Clients);
-    return nb_ligne;
-}
 

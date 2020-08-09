@@ -15,6 +15,8 @@ void Compte_ID(char *ID);
 void Creer_Solde(float *solde);
 float Pull_Bank();
 void Push_Bank(float solde);
+void Lire_Compte_ID(char *Id);
+void Generer_Solde(float *solde, char Savoir_R_ou_V);
 
 
 #endif // ERREURS_H_INCLUDED
