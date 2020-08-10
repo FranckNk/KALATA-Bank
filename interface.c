@@ -5,7 +5,7 @@
 
 void interface_0()
 {
-	system("color 3E");
+	system("color 9");
       printf("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*\n");
     wprintf(L"|  Dirig%1c par       :       Stephane Fedim                                                      |\n", 130);
       printf("*                                                                                               *\n");
