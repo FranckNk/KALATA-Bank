@@ -96,3 +96,39 @@
 	<stdlib.h>
 	<wchar.h>
 
+1597069665 source:c:\users\hp\kalata-bank\erreurs.c
+	<stdio.h>
+	<string.h>
+	<stdlib.h>
+	<time.h>
+	<ctype.h>
+
+1597069665 source:c:\users\hp\kalata-bank\fonctions.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<ctype.h>
+	<string.h>
+	"erreurs.h"
+	"interface.h"
+
+1597069665 c:\users\hp\kalata-bank\erreurs.h
+
+1597069665 c:\users\hp\kalata-bank\interface.h
+
+1597069665 source:c:\users\hp\kalata-bank\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"fonctions.h"
+	"interface.h"
+	"erreurs.h"
+
+1597069665 c:\users\hp\kalata-bank\fonctions.h
+
+1597102753 source:c:\users\hp\kalata-bank\interface.c
+	"erreurs.h"
+	<stdio.h>
+	<stdlib.h>
+	<wchar.h>
+

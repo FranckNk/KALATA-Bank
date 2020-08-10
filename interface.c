@@ -9,7 +9,7 @@ void interface_0()
       printf("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*\n");
     wprintf(L"|  Dirig%1c par       :       Stephane Fedim                                                      |\n", 130);
       printf("*                                                                                               *\n");
-      printf("|  Auteur           :       DETERGENT MADAR                                                     |\n");
+      printf("|  Auteurs           :       DETERGENT MADAR / EVARISTUS Gwanulaga                                                    |\n");
       printf("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*\n");
       printf("\n");
 }
@@ -65,7 +65,7 @@ void interface_2(char *choice)
 void interface_3()
 {
 	system("cls");
-	system("color A0");
+	system("color 9");
 	printf("\t---------------------------------------------------------------------\t\n");
 	printf("\t\t\t     VEUILLEZ AJOUTER DES CLIENTS ICI\t\t\t\n");
 	printf("\t---------------------------------------------------------------------\t\n\n");
@@ -74,7 +74,7 @@ void interface_3()
 void interface_4()
 {
 	system("cls");
-	system("color D0");
+	system("color 9");
 	printf("\t---------------------------------------------------------------------\t\n");
 	printf("\t\t\t        VEUILLEZ MODIFIER UN CLIENT ICI\t\t\t\n");
 	printf("\t---------------------------------------------------------------------\t\n\n");
@@ -83,7 +83,7 @@ void interface_4()
 void interface_5()
 {
 	system("cls");
-	system("color BD");
+	system("color 9");
 	printf("\t---------------------------------------------------------------------\t\n");
 	printf("\t\t\t        VEUILLEZ SUPPRIMER UN CLIENT ICI\t\t\t\n");
 	printf("\t---------------------------------------------------------------------\t\n\n");
@@ -92,7 +92,7 @@ void interface_5()
 void interface_6(char *choice)
 {
 	system("cls");
-	system("color 0E");
+	system("color 9");
 	printf("\t---------------------------------------------------------------------\t\n");
 	printf("\t\t\t     VEUILLEZ GERER VOS CLIENTS\t\t\t\n");
 	printf("\t---------------------------------------------------------------------\t\n\n");
@@ -114,7 +114,7 @@ void interface_7()
 void interface_8()
 {
 	system("cls");
-	system("color F9");
+	system("color 9");
 	printf("\t---------------------------------------------------------------------\t\n");
 	printf("\t\t\t     EFFECTUER LA RECHERCHE D'UN CLIENT ICI\t\t\t\n");
 	printf("\t---------------------------------------------------------------------\t\n\n");
@@ -123,7 +123,7 @@ void interface_8()
 void interface_9()
 {
 	system("cls");
-	system("color 2F");
+	system("color 1F");
 	printf("\t---------------------------------------------------------------------\t\n");
 	printf("\t\t\t     LISTE DES COMPTES\t\t\t\n");
 	printf("\t---------------------------------------------------------------------\t\n\n");
@@ -132,7 +132,7 @@ void interface_9()
 void interface_10()
 {
 	system("cls");
-	system("color E1");
+	system("color 9");
 	printf("\t---------------------------------------------------------------------\t\n");
 	printf("\t\t\t     CREER UN NOUVEAU COMPTE ICI\t\t\t\n");
 	printf("\t---------------------------------------------------------------------\t\n\n");
@@ -141,7 +141,7 @@ void interface_10()
 void interface_11()
 {
 	system("cls");
-	system("color 4B");
+	system("color 1F");
 	printf("\t---------------------------------------------------------------------\t\n");
 	printf("\t\t\t     CONSULTEZ VOTRE COMPTE\t\t\t\n");
 	printf("\t---------------------------------------------------------------------\t\n\n");
@@ -150,7 +150,7 @@ void interface_11()
 void interface_12(char *choice)
 {
 	system("cls");
-	system("color 0B");
+	system("color 1F");
 	printf("\t---------------------------------------------------------------------\t\n");
 	printf("\t\t\t     VEUILLEZ GERER VOS COMPTES\t\t\t\n");
 	printf("\t---------------------------------------------------------------------\t\n\n");
