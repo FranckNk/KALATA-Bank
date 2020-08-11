@@ -11,7 +11,6 @@ int main()
     do
     {
         interface_1(&choice);
-
         switch(choice)
         {
         case 'A' :
@@ -91,7 +90,6 @@ int main()
             system("pause");
             break;
         }
-
     }while(choice != 'D');
     return 0;
 }
