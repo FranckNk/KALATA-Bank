@@ -11,7 +11,7 @@ typedef struct Client
     char Id_client[6];
     char Nom[15];
     char Prenom[15];
-    char Profession[16];
+    char Profession[20];
     char Ntel[10];
     char Date[9];
 }Client;
@@ -69,7 +69,8 @@ void Ajouter()
 		i++;
 	}while(option == '1');
 	fclose(Clients);
-	printf("\n\n");
+	fclose(Comptes);
+	printf("\n");
 	system("pause");
 	return;
 }
@@ -457,7 +458,8 @@ void New_Account()
     interface_10();
     if(Comptes == NULL)
     {
-        printf("Impossible d'ouvrir le fichier... :( ! ");
+        printf("Impossible d'ouvrir le fichier... :( ! \n\n");
+        system("pause");
         return;
     }
     Lire_Id(Id_Client);
@@ -471,7 +473,7 @@ void New_Account()
         Solde_Banque = Pull_Bank();
         Push_Bank(Solde_Banque + UnCompte.Solde);
         fprintf(Comptes,"%s|%s|%.0f|%s\n", UnCompte.Id_Compte, UnCompte.Id_Client, UnCompte.Solde, UnCompte.Derniere_Op);
-        wprintf(L"Compte cr%1c%1c avec succ%1cs...\n\n", 130, 130, 138);
+        wprintf(L"\nCompte cr%1c%1c avec succ%1cs...\n\n", 130, 130, 138);
     }
     else
         printf("\nImpossible ! Client absent...\n\n");

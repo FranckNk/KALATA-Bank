@@ -10,7 +10,6 @@ int main()
     char choice, choice1;
     do
     {
-        interface_0();
         interface_1(&choice);
 
         switch(choice)

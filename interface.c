@@ -6,11 +6,11 @@
 void interface_0()
 {
 	system("color 9");
-      printf("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*\n");
-    wprintf(L"|  Dirig%1c par        :       Stephane Fedim                                                     |\n", 130);
-      printf("*                                                                                               *\n");
-      printf("|  Auteurs           :       DETERGENT MADAR / EVARISTUS Gwanulaga                              |\n");
-      printf("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*\n");
+      printf("  *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*\n");
+    wprintf(L"  |  Dirig%1c par        :       Stephane Fedim                                     |\n", 130);
+      printf("  *                                                                               *\n");
+      printf("  |  Auteurs           :       DETERGENT MADAR / EVARISTUS Gwanulaga              |\n");
+      printf("  *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*\n");
       printf("\n");
 }
 /*
@@ -40,7 +40,7 @@ void interface_1(char *choice)
 	interface_0();
 	printf("\t---------------------------------------------------------------------\t\n");
 	printf("\t*********************************************************************\t\n");
-	printf("\t\t\t    KALATA BANK\t\t\t\n");
+	printf("\t\t\t          KALATA BANK\t\t\t\n");
 	printf("\t*********************************************************************\t\n");
 	printf("\t---------------------------------------------------------------------\t\n\n");
 	printf("Que voulez-vous faire ?\n\n");
@@ -132,7 +132,7 @@ void interface_9()
 void interface_10()
 {
 	system("cls");
-	system("color 9");
+	system("color 1F");
 	printf("\t---------------------------------------------------------------------\t\n");
 	printf("\t\t\t     CREER UN NOUVEAU COMPTE ICI\t\t\t\n");
 	printf("\t---------------------------------------------------------------------\t\n\n");

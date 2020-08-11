@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1596971156 source:c:\users\detergent madar\documents\code blocks\kalata bank\main.c
+1597175814 source:c:\users\detergent madar\documents\code blocks\kalata bank\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -20,7 +20,7 @@
 	<string.h>
 	<stdlib.h>
 
-1597171786 source:c:\users\detergent madar\documents\code blocks\kalata bank\fonctions.c
+1597174795 source:c:\users\detergent madar\documents\code blocks\kalata bank\fonctions.c
 	<stdio.h>
 	<stdlib.h>
 	<time.h>
@@ -142,9 +142,11 @@
 
 1596971156 c:\users\detergent madar\documents\code blocks\kalata bank\interface.h
 
-1597172628 source:c:\users\detergent madar\documents\code blocks\kalata bank\interface.c
+1597176052 source:c:\users\detergent madar\documents\code blocks\kalata bank\interface.c
 	"erreurs.h"
 	<stdio.h>
 	<stdlib.h>
 	<wchar.h>
+
+1596971156 source:c:\users\detergent madar\documents\code blocks\kalata bank\resource.rc
 
