@@ -64,7 +64,7 @@ void Ajouter()
         fprintf(Comptes,"%s|%s|%.0f|%s\n", MonCompte.Id_Compte, MonCompte.Id_Client, MonCompte.Solde, MonCompte.Derniere_Op);
 		wprintf(L"\nAjout r%1cussi !!!\n",130 );
 		gets(clean_buffer);
-		printf("\n1. CONTINUER.\t2. SORTIR.\n>> ");
+		printf("\n1. CONTINUER.\t2. SORTIR.\n\n>> ");
 		verification("12", &option);
 		i++;
 	}while(option == '1');
@@ -105,20 +105,20 @@ void Supprimer()
 	cart = fgetc(Clients);
 	rewind(Clients);
 	if (cart == EOF)
-	{
-		printf("\nFichier vide ! Suppression impossible :( !");
-	}
+		printf("\nFichier vide ! Suppression impossible :( !\n\n");
 	else
 	{
 	    printf("Comment voulez-vous supprimer ?\n\n1. UN SEUL.    2. TOUT.\n\n>> ");
 	    verification("12", &cart);
 	    if(cart == '2')
         {
+            FILE *Comptes = fopen("Comptes.txt", "w");
+            fclose(Comptes);
             fclose(Clients_tmp);
             fclose(Clients);
             remove("Clients.txt");
             rename("Clients_tmp.txt", "Clients.txt");
-            wprintf(L"Suppr%1cssion r%1cussie...", 130, 130);
+            wprintf(L"\nSuppr%1cssion r%1cussie...\n\n", 130, 130);
             system("pause");
             return;
         }
@@ -171,7 +171,7 @@ void Recherche()
 	cart = fgetc(Clients);
 	rewind(Clients);
 	if (cart == EOF)
-		printf("\nFichier vide :(.");
+		printf("\nFichier vide. :(\n\n");
 	else
 	{
 	    char Identifiant[6], nom[20], c;
@@ -265,12 +265,15 @@ void Affiche_Clients()
     int n = 1;
     if(Clients == NULL)
     {
-        printf("Impossible d'ouvrir le fichier... :(  !");
+        printf("Impossible d'ouvrir le fichier... :(  !\n\n");
+        system("pause");
         return;
     }
     cart = fgetc(Clients);
     if(cart == EOF)
-        printf("Fichier vide !");
+    {
+        printf("Liste vide...\n\n");
+    }
     rewind(Clients);
     while(fgets(text, 200, Clients) != NULL)
     {
@@ -426,12 +429,13 @@ void Affiche_Compte()
     interface_9();
     if(Comptes == NULL)
     {
-        printf("Impossible d'ouvrir le fichier... :( ! ");
+        printf("Impossible d'ouvrir le fichier... :( ! \n");
+        system("pause");
         return;
     }
     cart = fgetc(Comptes);
     if(cart == EOF)
-        printf("La banque n'a aucun compte !");
+        printf("La banque n'a aucun compte !\n\n");
     rewind(Comptes);
     while(fgets(text, 200, Comptes) != NULL)
     {
@@ -485,7 +489,7 @@ void Consultation()
     cart = fgetc(Comptes);
     if(cart == EOF)
     {
-        printf("\nAucun compte dans la banque...\n");
+        printf("\nAucun compte dans la banque...\n\n");
         fclose(Comptes);
         system("pause");
         return;
@@ -523,7 +527,7 @@ void Modifier()
     cart = fgetc(Clients);
     if(cart == EOF)
     {
-        printf("\nFichier vide...\n");
+        printf("\nAucun client... Modification impossible. :(\n\n");
         fclose(Clients);
         system("pause");
         return;

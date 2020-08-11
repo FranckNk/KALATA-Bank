@@ -1,32 +1,40 @@
 # depslib dependency file v1.0
-1596037850 source:c:\users\detergent madar\documents\code blocks\kalata bank\main.c
+1596971156 source:c:\users\detergent madar\documents\code blocks\kalata bank\main.c
 	<stdio.h>
 	<stdlib.h>
+	<string.h>
 	"fonctions.h"
+	"interface.h"
 	"erreurs.h"
 
-1596036607 c:\users\detergent madar\documents\code blocks\kalata bank\fonctions.h
+1596971156 c:\users\detergent madar\documents\code blocks\kalata bank\fonctions.h
 
 1596036441 c:\users\detergent madar\documents\code blocks\kalata bank\fonctions.c
 	<stdio.h>
 	<stdlib.h>
 
-1596036607 c:\users\detergent madar\documents\code blocks\kalata bank\erreurs.h
+1596971156 c:\users\detergent madar\documents\code blocks\kalata bank\erreurs.h
 
 1596036568 c:\users\detergent madar\documents\code blocks\kalata bank\erreurs.c
 	<stdio.h>
 	<string.h>
 	<stdlib.h>
 
-1596087492 source:c:\users\detergent madar\documents\code blocks\kalata bank\fonctions.c
+1597171786 source:c:\users\detergent madar\documents\code blocks\kalata bank\fonctions.c
 	<stdio.h>
 	<stdlib.h>
+	<time.h>
+	<ctype.h>
+	<string.h>
 	"erreurs.h"
+	"interface.h"
 
-1596036568 source:c:\users\detergent madar\documents\code blocks\kalata bank\erreurs.c
+1596971156 source:c:\users\detergent madar\documents\code blocks\kalata bank\erreurs.c
 	<stdio.h>
 	<string.h>
 	<stdlib.h>
+	<time.h>
+	<ctype.h>
 
 1596122607 source:c:\users\madar\documents\code blocks\kalata bank\fonctions.c
 	<stdio.h>
@@ -127,6 +135,14 @@
 1597069665 c:\users\hp\kalata-bank\fonctions.h
 
 1597102753 source:c:\users\hp\kalata-bank\interface.c
+	"erreurs.h"
+	<stdio.h>
+	<stdlib.h>
+	<wchar.h>
+
+1596971156 c:\users\detergent madar\documents\code blocks\kalata bank\interface.h
+
+1597172628 source:c:\users\detergent madar\documents\code blocks\kalata bank\interface.c
 	"erreurs.h"
 	<stdio.h>
 	<stdlib.h>

@@ -7,9 +7,9 @@ void interface_0()
 {
 	system("color 9");
       printf("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*\n");
-    wprintf(L"|  Dirig%1c par       :       Stephane Fedim                                                      |\n", 130);
+    wprintf(L"|  Dirig%1c par        :       Stephane Fedim                                                     |\n", 130);
       printf("*                                                                                               *\n");
-      printf("|  Auteurs           :       DETERGENT MADAR / EVARISTUS Gwanulaga                                                    |\n");
+      printf("|  Auteurs           :       DETERGENT MADAR / EVARISTUS Gwanulaga                              |\n");
       printf("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*\n");
       printf("\n");
 }
@@ -65,7 +65,7 @@ void interface_2(char *choice)
 void interface_3()
 {
 	system("cls");
-	system("color 9");
+	system("color 1E");
 	printf("\t---------------------------------------------------------------------\t\n");
 	printf("\t\t\t     VEUILLEZ AJOUTER DES CLIENTS ICI\t\t\t\n");
 	printf("\t---------------------------------------------------------------------\t\n\n");
@@ -74,7 +74,7 @@ void interface_3()
 void interface_4()
 {
 	system("cls");
-	system("color 9");
+	system("color 1E");
 	printf("\t---------------------------------------------------------------------\t\n");
 	printf("\t\t\t        VEUILLEZ MODIFIER UN CLIENT ICI\t\t\t\n");
 	printf("\t---------------------------------------------------------------------\t\n\n");
@@ -83,7 +83,7 @@ void interface_4()
 void interface_5()
 {
 	system("cls");
-	system("color 9");
+	system("color 1E");
 	printf("\t---------------------------------------------------------------------\t\n");
 	printf("\t\t\t        VEUILLEZ SUPPRIMER UN CLIENT ICI\t\t\t\n");
 	printf("\t---------------------------------------------------------------------\t\n\n");
@@ -92,7 +92,7 @@ void interface_5()
 void interface_6(char *choice)
 {
 	system("cls");
-	system("color 9");
+	system("color 1E");
 	printf("\t---------------------------------------------------------------------\t\n");
 	printf("\t\t\t     VEUILLEZ GERER VOS CLIENTS\t\t\t\n");
 	printf("\t---------------------------------------------------------------------\t\n\n");
@@ -105,7 +105,7 @@ void interface_6(char *choice)
 void interface_7()
 {
 	system("cls");
-	system("color 1F");
+	system("color 1E");
 	printf("\t---------------------------------------------------------------------\t\n");
 	printf("\t\t\t     LISTE DES CLIENTS\t\t\t\n");
 	printf("\t---------------------------------------------------------------------\t\n\n");
@@ -114,7 +114,7 @@ void interface_7()
 void interface_8()
 {
 	system("cls");
-	system("color 9");
+	system("color 1E");
 	printf("\t---------------------------------------------------------------------\t\n");
 	printf("\t\t\t     EFFECTUER LA RECHERCHE D'UN CLIENT ICI\t\t\t\n");
 	printf("\t---------------------------------------------------------------------\t\n\n");
